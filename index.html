@@ -11,6 +11,10 @@
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="/uiuc-dm-capstone/assets/css/style.css?v=78216843dce9f67dc54823bfca95d326b962963a">
 
+    
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    
 <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Zeed Jarrah Data Mining Capstone</title>
 <meta name="generator" content="Jekyll v3.8.7" />
@@ -32,7 +36,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/Z-Jarrah/uiuc-dm-capstone">View on GitHub</a>
 
-          <h1 id="project_title">uiuc-dm-capstone</h1>
+          <h1 id="project_title">CS 598 Data Mining Capstone</h1>
           <h2 id="project_tagline"></h2>
 
           
@@ -73,55 +77,112 @@ div.tooltip {
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2 id="welcome-to-github-pages">Test Title</h2>
-        
+        <h2 id="welcome-to-github-pages">Examining Different Types of Mediterranean Foods</h2>
+
+<!-- Initialize a select button -->
+<select id="selectButton"></select>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
 <svg width="50" height="50">
 <rect x="0" y="0" width="50" height="50" fill="green" />
 </svg>
         
 <script>
-  chart = {
-  const svg = d3.create("svg")
-      .attr("viewBox", [0, 0, width, height]);
-  
-  const bar = svg.append("g")
-      .attr("fill", "steelblue")
-    .selectAll("rect")
-    .data(data)
-    .join("rect")
-      .style("mix-blend-mode", "multiply")
-      .attr("x", d => x(d.name))
-      .attr("y", d => y(d.value))
-      .attr("height", d => y(0) - y(d.value))
-      .attr("width", x.bandwidth());
-  
-  const gx = svg.append("g")
-      .call(xAxis);
-  
-  const gy = svg.append("g")
-      .call(yAxis);
 
-  return Object.assign(svg.node(), {
-    update(order) {
-      x.domain(data.sort(order).map(d => d.name));
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 100, bottom: 30, left: 30},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
-      const t = svg.transition()
-          .duration(750);
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
 
-      bar.data(data, d => d.name)
-          .order()
-        .transition(t)
-          .delay((d, i) => i * 20)
-          .attr("x", d => x(d.name));
+//Read the data
+d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_connectedscatter.csv", function(data) {
 
-      gx.transition(t)
-          .call(xAxis)
-        .selectAll(".tick")
-          .delay((d, i) => i * 20);
+    // List of groups (here I have one group per column)
+    var allGroup = ["valueA", "valueB", "valueC"]
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+     	.data(allGroup)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
+    // A color scale: one color for each group
+    var myColor = d3.scaleOrdinal()
+      .domain(allGroup)
+      .range(d3.schemeSet2);
+
+    // Add X axis --> it is a date format
+    var x = d3.scaleLinear()
+      .domain([0,10])
+      .range([ 0, width ]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain( [0,20])
+      .range([ height, 0 ]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    // Initialize line with group a
+    var line = svg
+      .append('g')
+      .append("path")
+        .datum(data)
+        .attr("d", d3.line()
+          .x(function(d) { return x(+d.time) })
+          .y(function(d) { return y(+d.valueA) })
+        )
+        .attr("stroke", function(d){ return myColor("valueA") })
+        .style("stroke-width", 4)
+        .style("fill", "none")
+
+    // A function that update the chart
+    function update(selectedGroup) {
+
+      // Create new data with the selection?
+      var dataFilter = data.map(function(d){return {time: d.time, value:d[selectedGroup]} })
+
+      // Give these new data to update line
+      line
+          .datum(dataFilter)
+          .transition()
+          .duration(1000)
+          .attr("d", d3.line()
+            .x(function(d) { return x(+d.time) })
+            .y(function(d) { return y(+d.value) })
+          )
+          .attr("stroke", function(d){ return myColor(selectedGroup) })
     }
-  });
-}
-  </script>
+
+    // When the button is changed, run the updateChart function
+    d3.select("#selectButton").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedOption = d3.select(this).property("value")
+        // run the updateChart function with this selected option
+        update(selectedOption)
+    })
+
+})
+
+
+</script>
       </section>
     </div>
 
