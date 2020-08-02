@@ -136,6 +136,9 @@ text.source {
     </div>
   </div>
   
+  <p id="dishes">
+	
+  </p>
   <script>
   // https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-languages
     const dish_samples = [
@@ -316,7 +319,19 @@ text.source {
 	// Modified to accomodate more data
 	//=========================================================================
 	//
-	d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/dishes.csv")
+	d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/dishes.csv").then(function(data){
+
+      for (i = 0; i < data.length; i++){
+        text = data[i]
+        array.push(text)
+      }
+      var item = ''
+
+      for (i = 0; i < array.length; i++){
+        item += (i+1) + ") " + array[i]['Dish'] + '<br>'
+      }
+      document.getElementById('dishes').innerHTML = item
+	  })
     
 
   </script>
