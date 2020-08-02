@@ -131,55 +131,35 @@ text.source {
   // https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-languages
     const sample = [
       {
-        language: 'Rust',
-        value: 78.9,
+        language: 'Spinach Pie',
+        value: 40.5,
         color: '#000000'
       },
       {
-        language: 'Kotlin',
-        value: 75.1,
+        language: 'Kabob',
+        value: 51.3,
         color: '#00a2ee'
       },
       {
-        language: 'Python',
-        value: 68.0,
+        language: 'Shawarma',
+        value: 48.9,
         color: '#fbcb39'
       },
       {
-        language: 'TypeScript',
-        value: 67.0,
+        language: 'Stuffed Grape Leaves',
+        value: 46.9,
         color: '#007bc8'
       },
       {
-        language: 'Go',
-        value: 65.6,
+        language: 'Hummus',
+        value: 57.9,
         color: '#65cedb'
       },
       {
-        language: 'Swift',
-        value: 65.1,
+        language: 'Falafel',
+        value: 55.5,
         color: '#ff6e52'
       },
-      {
-        language: 'JavaScript',
-        value: 61.9,
-        color: '#f9de3f'
-      },
-      {
-        language: 'C#',
-        value: 60.4,
-        color: '#5d2f8e'
-      },
-      {
-        language: 'F#',
-        value: 59.6,
-        color: '#008fc9'
-      },
-      {
-        language: 'Clojure',
-        value: 59.6,
-        color: '#507dca'
-      }
     ];
 
     const svg = d3.select('svg');
@@ -310,7 +290,7 @@ text.source {
       .attr('y', margin / 2.4)
       .attr('transform', 'rotate(-90)')
       .attr('text-anchor', 'middle')
-      .text('Love meter (%)')
+      .text('Positive Sentiment (%)')
 
     svg.append('text')
       .attr('class', 'label')
@@ -324,14 +304,14 @@ text.source {
       .attr('x', width / 2 + margin)
       .attr('y', 40)
       .attr('text-anchor', 'middle')
-      .text('Most loved programming languages in 2018')
+      .text('Iconic Middle Eastern Dishes')
 
     svg.append('text')
       .attr('class', 'source')
       .attr('x', width - margin / 2)
       .attr('y', height + margin * 1.7)
       .attr('text-anchor', 'start')
-      .text('Source: Stack Overflow, 2018')
+      .text('Source: Yelp Academic Dataset 2014')
   </script>
       </section>
     </div>
