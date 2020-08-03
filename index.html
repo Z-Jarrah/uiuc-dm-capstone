@@ -128,14 +128,13 @@ text.source {
   </div>
   
   <h3>Middle Eastern Restaurants</a></h3>
-    
-	<div id='layout'>
-    <!-- <h2>Bar chart example</h2> -->
-    <div id='container'>
-      <svg id='places' />
-    </div>
-  </div>
   
+  <!-- Initialize a select button -->
+<select id="selectButton"></select>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
   <p id="dishes">
 	
   </p>
@@ -319,6 +318,23 @@ text.source {
 	// Modified to accomodate more data
 	//=========================================================================
 	//
+	
+	    // List of groups (here I have one group per column)
+    var allGroup = ["Spinach Pie", "Kabob", "Shawarma", "Grape leaves", "Hummus", "Falafel"]
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+     	.data(allGroup)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function (d) { return d; }) // corresponding value returned by the button
+	  
+	  
+	
+	
+	// Test code to displaying the data
 	var array = []
 	d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/dishes.csv").then(function(data){
 

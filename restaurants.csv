@@ -1,0 +1,267 @@
+Restaurant,Dish,Stars,Price Range
+Al-Hana,spinach pie,4.0,1
+Byblos Restaurant,spinach pie,4.0,2
+Stephano's Greek & Mediterranean Grill,spinach pie,4.0,2
+Paymon's Mediterranean Cafe & Hookah Lounge,spinach pie,3.5,2
+Babylon Gyros & Shish Kabobs,spinach pie,4.0,1
+Middle Eastern Bakery & Deli,spinach pie,4.5,1
+Fattoush Restaurant,spinach pie,3.5,1
+Mijana,spinach pie,3.5,2
+Cleopatra,spinach pie,3.0,2
+Ali Baba Cuisine,spinach pie,3.0,2
+Baiz Market,spinach pie,4.0,1
+Amena Bakery & Deli,spinach pie,4.5,1
+Rania's Kabob Grill,kabob,4.5,2
+Manna Mediterranean,kabob,3.0,1
+Byblos Restaurant,kabob,4.0,2
+Habib's Persian Cuisine,kabob,3.0,2
+Pita House,kabob,3.0,2
+Yusef's Middle Eastern Restaurant Grocery & Deli,kabob,4.0,1
+Shawarma Vegas,kabob,3.5,2
+Paprika Mediterranean Experience,kabob,4.0,2
+Yalla Mediterranean Grill,kabob,4.0,1
+Ali Baba's Cafe,kabob,4.0,1
+Phoenicia Cafe,kabob,4.0,1
+Pars Persian Cuisine,kabob,4.0,2
+Amena Bakery & Deli,kabob,4.5,1
+People's Bakery,kabob,4.0,1
+Marrakech Moroccan Restaurant,kabob,4.0,3
+The Mediterranean Grill,kabob,4.5,2
+Babylon Gyros & Shish Kabobs,kabob,4.0,1
+Shish Cafe Inc,kabob,4.0,2
+Cafe Istanbul & Market,kabob,4.0,2
+Baiz Market,kabob,4.0,1
+Afandi Restaurant and Market,kabob,4.0,1
+Persian Room,kabob,4.0,2
+Princess Mediterranean Market & Deli,kabob,4.5,1
+Khoury's Mediterranean Restaurant,kabob,3.5,2
+Haji-Baba,kabob,4.5,1
+Middle Eastern Bakery & Deli,kabob,4.5,1
+Fattoush Restaurant,kabob,3.5,1
+Athens Bar & Grill,kabob,4.0,1
+Cleopatra,kabob,3.0,2
+Ali Baba Cuisine,kabob,3.0,2
+Mijana,kabob,3.5,2
+Filfila Mediterranean Cafe,kabob,4.0,1
+Kabob Grill,kabob,4.0,1
+Sababa,kabob,4.0,2
+Al-Hana,kabob,4.0,1
+Tasty Kabob,kabob,4.0,2
+Stephano's Greek & Mediterranean Grill,kabob,4.0,2
+Paymon's Mediterranean Cafe & Hookah Lounge,kabob,3.5,2
+Hedary's Mediterranean Restaurant,kabob,4.0,2
+Shish Kabob House,kabob,4.0,2
+Almaza Hookah Cafe,kabob,2.5,2
+Flaming Kabob,kabob,3.5,1
+Pita Shack,kabob,4.0,1
+Rania's Kabob Grill,shawarma,4.5,2
+Manna Mediterranean,shawarma,3.0,1
+Byblos Restaurant,shawarma,4.0,2
+Habib's Persian Cuisine,shawarma,3.0,2
+Pita House,shawarma,3.0,2
+Yusef's Middle Eastern Restaurant Grocery & Deli,shawarma,4.0,1
+Shawarma Vegas,shawarma,3.5,2
+Paprika Mediterranean Experience,shawarma,4.0,2
+Yalla Mediterranean Grill,shawarma,4.0,1
+Pita Heaven,shawarma,3.5,1
+Ali Baba's Cafe,shawarma,4.0,1
+Phoenicia Cafe,shawarma,4.0,1
+Pars Persian Cuisine,shawarma,4.0,2
+Gyro House,shawarma,4.5,1
+Amena Bakery & Deli,shawarma,4.5,1
+People's Bakery,shawarma,4.0,1
+Marrakech Moroccan Restaurant,shawarma,4.0,3
+Juba,shawarma,4.5,1
+Ammos Mediterranean Grill,shawarma,4.0,1
+The Mediterranean Grill,shawarma,4.5,2
+Babylon Gyros & Shish Kabobs,shawarma,4.0,1
+Hanam's,shawarma,3.5,2
+Shish Cafe Inc,shawarma,4.0,2
+Cafe Istanbul & Market,shawarma,4.0,2
+Baiz Market,shawarma,4.0,1
+Afandi Restaurant and Market,shawarma,4.0,1
+Persian Room,shawarma,4.0,2
+Princess Mediterranean Market & Deli,shawarma,4.5,1
+Khoury's Mediterranean Restaurant,shawarma,3.5,2
+Haji-Baba,shawarma,4.5,1
+Sahara Middle Eastern Restaurant,shawarma,4.0,2
+Middle Eastern Bakery & Deli,shawarma,4.5,1
+Fattoush Restaurant,shawarma,3.5,1
+Athens Bar & Grill,shawarma,4.0,1
+Cleopatra,shawarma,3.0,2
+Ali Baba Cuisine,shawarma,3.0,2
+Mijana,shawarma,3.5,2
+Filfila Mediterranean Cafe,shawarma,4.0,1
+Kabob Grill,shawarma,4.0,1
+Sababa,shawarma,4.0,2
+Al-Hana,shawarma,4.0,1
+Tasty Kabob,shawarma,4.0,2
+Stephano's Greek & Mediterranean Grill,shawarma,4.0,2
+Paymon's Mediterranean Cafe & Hookah Lounge,shawarma,3.5,2
+Hedary's Mediterranean Restaurant,shawarma,4.0,2
+Shish Kabob House,shawarma,4.0,2
+Almaza Hookah Cafe,shawarma,2.5,2
+Flaming Kabob,shawarma,3.5,1
+Pita Jungle,shawarma,4.0,2
+Pita Shack,shawarma,4.0,1
+Rania's Kabob Grill,grape leaves,4.5,2
+Manna Mediterranean,grape leaves,3.0,1
+Byblos Restaurant,grape leaves,4.0,2
+Habib's Persian Cuisine,grape leaves,3.0,2
+Pita House,grape leaves,3.0,2
+Yusef's Middle Eastern Restaurant Grocery & Deli,grape leaves,4.0,1
+Shawarma Vegas,grape leaves,3.5,2
+Paprika Mediterranean Experience,grape leaves,4.0,2
+Yalla Mediterranean Grill,grape leaves,4.0,1
+Pita Heaven,grape leaves,3.5,1
+Ali Baba's Cafe,grape leaves,4.0,1
+Phoenicia Cafe,grape leaves,4.0,1
+Pars Persian Cuisine,grape leaves,4.0,2
+King Tut Cafe & Catering,grape leaves,4.0,2
+Gyro House,grape leaves,4.5,1
+Amena Bakery & Deli,grape leaves,4.5,1
+People's Bakery,grape leaves,4.0,1
+Marrakech Moroccan Restaurant,grape leaves,4.0,3
+Juba,grape leaves,4.5,1
+Ammos Mediterranean Grill,grape leaves,4.0,1
+The Mediterranean Grill,grape leaves,4.5,2
+Babylon Gyros & Shish Kabobs,grape leaves,4.0,1
+Hanam's,grape leaves,3.5,2
+Shish Cafe Inc,grape leaves,4.0,2
+Cafe Istanbul & Market,grape leaves,4.0,2
+Baiz Market,grape leaves,4.0,1
+Afandi Restaurant and Market,grape leaves,4.0,1
+Persian Room,grape leaves,4.0,2
+Princess Mediterranean Market & Deli,grape leaves,4.5,1
+Khoury's Mediterranean Restaurant,grape leaves,3.5,2
+Haji-Baba,grape leaves,4.5,1
+Sahara Middle Eastern Restaurant,grape leaves,4.0,2
+Middle Eastern Bakery & Deli,grape leaves,4.5,1
+Fattoush Restaurant,grape leaves,3.5,1
+Athens Bar & Grill,grape leaves,4.0,1
+Cleopatra,grape leaves,3.0,2
+Ali Baba Cuisine,grape leaves,3.0,2
+Mijana,grape leaves,3.5,2
+Filfila Mediterranean Cafe,grape leaves,4.0,1
+Kabob Grill,grape leaves,4.0,1
+Sababa,grape leaves,4.0,2
+Al-Hana,grape leaves,4.0,1
+Tasty Kabob,grape leaves,4.0,2
+Stephano's Greek & Mediterranean Grill,grape leaves,4.0,2
+Paymon's Mediterranean Cafe & Hookah Lounge,grape leaves,3.5,2
+Hedary's Mediterranean Restaurant,grape leaves,4.0,2
+Shish Kabob House,grape leaves,4.0,2
+Almaza Hookah Cafe,grape leaves,2.5,2
+Flaming Kabob,grape leaves,3.5,1
+Pita Jungle,grape leaves,4.0,2
+Pita Shack,grape leaves,4.0,1
+Rania's Kabob Grill,hummus,4.5,2
+Manna Mediterranean,hummus,3.0,1
+Byblos Restaurant,hummus,4.0,2
+Habib's Persian Cuisine,hummus,3.0,2
+Pita House,hummus,3.0,2
+Yusef's Middle Eastern Restaurant Grocery & Deli,hummus,4.0,1
+Shawarma Vegas,hummus,3.5,2
+Paprika Mediterranean Experience,hummus,4.0,2
+Yalla Mediterranean Grill,hummus,4.0,1
+Pita Heaven,hummus,3.5,1
+Ali Baba's Cafe,hummus,4.0,1
+ZiKiZ,hummus,4.5,1
+Phoenicia Cafe,hummus,4.0,1
+Pars Persian Cuisine,hummus,4.0,2
+King Tut Cafe & Catering,hummus,4.0,2
+Gyro House,hummus,4.5,1
+Amena Bakery & Deli,hummus,4.5,1
+People's Bakery,hummus,4.0,1
+Marrakech Moroccan Restaurant,hummus,4.0,3
+Juba,hummus,4.5,1
+Ammos Mediterranean Grill,hummus,4.0,1
+The Mediterranean Grill,hummus,4.5,2
+Babylon Gyros & Shish Kabobs,hummus,4.0,1
+Harem Lounge,hummus,2.5,3
+Hanam's,hummus,3.5,2
+Palmyra,hummus,4.5,1
+Shish Cafe Inc,hummus,4.0,2
+Cafe Istanbul & Market,hummus,4.0,2
+Baiz Market,hummus,4.0,1
+Afandi Restaurant and Market,hummus,4.0,1
+Persian Room,hummus,4.0,2
+Princess Mediterranean Market & Deli,hummus,4.5,1
+Khoury's Mediterranean Restaurant,hummus,3.5,2
+Haji-Baba,hummus,4.5,1
+Sahara Middle Eastern Restaurant,hummus,4.0,2
+Middle Eastern Bakery & Deli,hummus,4.5,1
+Fattoush Restaurant,hummus,3.5,1
+Athens Bar & Grill,hummus,4.0,1
+Cleopatra,hummus,3.0,2
+Ali Baba Cuisine,hummus,3.0,2
+Hummus Xpress,hummus,4.5,1
+Mijana,hummus,3.5,2
+Filfila Mediterranean Cafe,hummus,4.0,1
+Kabob Grill,hummus,4.0,1
+Sababa,hummus,4.0,2
+Al-Hana,hummus,4.0,1
+Tasty Kabob,hummus,4.0,2
+Stephano's Greek & Mediterranean Grill,hummus,4.0,2
+Paymon's Mediterranean Cafe & Hookah Lounge,hummus,3.5,2
+Hedary's Mediterranean Restaurant,hummus,4.0,2
+Shish Kabob House,hummus,4.0,2
+Almaza Hookah Cafe,hummus,2.5,2
+Flaming Kabob,hummus,3.5,1
+Pita Jungle,hummus,4.0,2
+Pita Shack,hummus,4.0,1
+Rania's Kabob Grill,falafel,4.5,2
+Manna Mediterranean,falafel,3.0,1
+Byblos Restaurant,falafel,4.0,2
+Habib's Persian Cuisine,falafel,3.0,2
+Pita House,falafel,3.0,2
+Yusef's Middle Eastern Restaurant Grocery & Deli,falafel,4.0,1
+Shawarma Vegas,falafel,3.5,2
+Paprika Mediterranean Experience,falafel,4.0,2
+Yalla Mediterranean Grill,falafel,4.0,1
+Pita Heaven,falafel,3.5,1
+Ali Baba's Cafe,falafel,4.0,1
+ZiKiZ,falafel,4.5,1
+Phoenicia Cafe,falafel,4.0,1
+Pars Persian Cuisine,falafel,4.0,2
+King Tut Cafe & Catering,falafel,4.0,2
+Gyro House,falafel,4.5,1
+Amena Bakery & Deli,falafel,4.5,1
+People's Bakery,falafel,4.0,1
+Marrakech Moroccan Restaurant,falafel,4.0,3
+Juba,falafel,4.5,1
+Ammos Mediterranean Grill,falafel,4.0,1
+The Mediterranean Grill,falafel,4.5,2
+Babylon Gyros & Shish Kabobs,falafel,4.0,1
+Harem Lounge,falafel,2.5,3
+Hanam's,falafel,3.5,2
+Palmyra,falafel,4.5,1
+Shish Cafe Inc,falafel,4.0,2
+Cafe Istanbul & Market,falafel,4.0,2
+Baiz Market,falafel,4.0,1
+Afandi Restaurant and Market,falafel,4.0,1
+Persian Room,falafel,4.0,2
+Princess Mediterranean Market & Deli,falafel,4.5,1
+Khoury's Mediterranean Restaurant,falafel,3.5,2
+Haji-Baba,falafel,4.5,1
+Sahara Middle Eastern Restaurant,falafel,4.0,2
+Middle Eastern Bakery & Deli,falafel,4.5,1
+Fattoush Restaurant,falafel,3.5,1
+Athens Bar & Grill,falafel,4.0,1
+Cleopatra,falafel,3.0,2
+Ali Baba Cuisine,falafel,3.0,2
+Hummus Xpress,falafel,4.5,1
+Mijana,falafel,3.5,2
+Filfila Mediterranean Cafe,falafel,4.0,1
+Kabob Grill,falafel,4.0,1
+Sababa,falafel,4.0,2
+Al-Hana,falafel,4.0,1
+Tasty Kabob,falafel,4.0,2
+Stephano's Greek & Mediterranean Grill,falafel,4.0,2
+Paymon's Mediterranean Cafe & Hookah Lounge,falafel,3.5,2
+Hedary's Mediterranean Restaurant,falafel,4.0,2
+Shish Kabob House,falafel,4.0,2
+Almaza Hookah Cafe,falafel,2.5,2
+Flaming Kabob,falafel,3.5,1
+Pita Jungle,falafel,4.0,2
+Pita Shack,falafel,4.0,1
