@@ -11,6 +11,10 @@ import csv
 # Perform sentiment analysis on the data
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
+# Utility function to sort the dictionary
+def getKey(item):
+    return item[1]
+
 # Utilize VADER to compute a sentiment score for each review
 def sentiment_analyzer_scores(sentence):
     analyser = SentimentIntensityAnalyzer()
@@ -58,8 +62,9 @@ def process_dataset(biz_dir = "../yelp_dataset_challenge_academic_dataset/yelp_a
         if doc_min > len(reviews[key]):
             reviews.pop(key, None)
             places.pop(key, None)
-            
-    print(f"Number of places with atleast {doc_min} reviews: {len(places)}")
+
+#    Debug
+#    print(f"Number of places with atleast {doc_min} reviews: {len(places)}")
     
     return places, reviews
 
@@ -94,21 +99,46 @@ def test_csv():
         writer.writeheader()
         writer.writerow(test)
         
+def food_csv(results):
+    with open('dishes.csv', 'w', newline='') as csvfile:
+        fieldnames = ['Dish', 'Pos']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        writer.writeheader()
+        for res in results:
+            writer.writerow(res)
+
+def places_csv(results):
+    with open('restaurants.csv', 'w', newline='') as csvfile:
+        fieldnames = ['Restaurant', 'Dish','Stars' , 'Price Range']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        writer.writeheader()
+        for res in results:
+            writer.writerow(res)
         
 def write_scores(food):
     results = []
-    poor_info = 0
     for f in food:
         pos_count = 0
+        poor_info = 0
         for x in food[f]:
             score = sentiment_analyzer_scores(x[1])
 #            print(f"{f} || {score}")
             if score['pos'] > (score['neg']+0.05):
                 pos_count += 1
-            elif score['neu'] > 1.0:
+            elif score['neu'] > 0.9:
                 poor_info += 1
         
-        print(f"{pos_count} / {len(food[f])-(poor_info + 1)} = {pos_count/ (len(food[f]) - poor_info + 1)}")
+        sentiment = pos_count / (len(food[f]) - poor_info)
+        
+        print(f"{pos_count} / {len(food[f])-poor_info} = {sentiment}")
+        
+        sentiment *= 100
+        format_sentiment = "{:0.1f}".format(sentiment)
+        results.append({'Dish': f, 'Pos': format_sentiment})
+
+    food_csv(results)
 
 def main():
     places, reviews = process_dataset()
@@ -118,10 +148,33 @@ def main():
     food = parse_food_reviews(reviews,dishes)
     
     write_scores(food)
+    
+    # Restaurant CSV Creation
+    top_places = dict()
+    places_set = set()
+    results = []
+    for f in food:
+        top_places[f] = dict()
+        print('===============================================================')
+        print(f"===== {f} =====")
+        for b in food[f]:
+            places_set.add(b[0])
+            if places[b[0]]['name'] in top_places[f]:
+                top_places[f][places[b[0]]['name']] += 1
+            else:
+                top_places[f][places[b[0]]['name']] = 1
+            
+        for s in places_set:
+            print(f"{places[s]['name']} || {places[s]['stars']} || {places[s]['attributes']['Price Range']}")
+            p = {'Restaurant': places[s]['name'], 'Dish': f,'Stars': places[s]['stars'], 'Price Range': places[s]['attributes']['Price Range']}
+            results.append(p)
+        
+        places_csv(results)
+        
+        print('===============================================================')
 
 
 if __name__ == "__main__":
-    test_csv()
     main()
 
 
