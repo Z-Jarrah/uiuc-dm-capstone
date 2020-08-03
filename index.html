@@ -340,8 +340,7 @@ text.source {
       var item = ''
 
       for (i = 0; i < array.length; i++){
-		var string1 = "Spinach Pie"
-        item += (i+1) + ") " + array[i]['Restaurant'] + " " + array[i]['Dish'] + " | Stars:" + array[i]['Stars'] + " | Price Range:" + array[i]['Price Range'] +'<br>'
+        item += array[i]['Dish']  + ") " + array[i]['Restaurant'] + " | Stars: " + array[i]['Stars'] + " | Price Range: " + array[i]['Price Range'] +'<br>'
       }
       document.getElementById('places').innerHTML = item
 	  })
