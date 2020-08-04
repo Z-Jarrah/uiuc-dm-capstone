@@ -209,7 +209,9 @@ def main():
     feature_result = [] 
     for c in candidate_places:
         if 0.666 <= candidate_places[c]:
-            feature_result.append({'Restaurant': places[c]['name'], "Sentiment(%)":(100 * candidate_places[c]) , 'Stars': places[c]['stars'] , 'Price Range': cost_descriptor(places[c]['attributes']['Price Range'])})
+            float_sentiment =candidate_places[c] * 100
+            format_sentiment = "{:0.1f}".format(float_sentiment)
+            feature_result.append({'Restaurant': places[c]['name'], "Sentiment(%)": format_sentiment, 'Stars': places[c]['stars'] , 'Price Range': cost_descriptor(places[c]['attributes']['Price Range'])})
     
     with open('topkabob.csv', 'w', newline='') as csvfile:
         fieldnames = ['Restaurant', 'Sentiment(%)', 'Stars' , 'Price Range']
