@@ -11,9 +11,6 @@ import csv
 # Perform sentiment analysis on the data
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-# Utility function to sort the dictionary
-def getKey(item):
-    return item[1]
 
 # Utilize VADER to compute a sentiment score for each review
 def sentiment_analyzer_scores(sentence):
@@ -29,6 +26,14 @@ def dish_list(dish_dir="dish_names.txt"):
             dishes[line] = list()
     
     return dishes
+
+def cost_descriptor(desc):
+    if 1 == int(desc):
+        return "low cost"
+    elif 2 == int(desc):
+        return "moderate cost"
+    elif 3 == int(desc):
+        return "high cost" 
 
 # Process the business and review json files and produce a csv containing the sentiments, price categoryyn
 def process_dataset(biz_dir = "../yelp_dataset_challenge_academic_dataset/yelp_academic_dataset_business.json", 
@@ -108,9 +113,9 @@ def food_csv(results):
         for res in results:
             writer.writerow(res)
 
-def places_csv(results):
-    with open('restaurants.csv', 'w', newline='') as csvfile:
-        fieldnames = ['Restaurant', 'Dish','Stars' , 'Price Range']
+def places_csv(fname, results):
+    with open( fname+'.csv', 'w', newline='') as csvfile:
+        fieldnames = ['Restaurant', 'Stars' , 'Price Range']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -140,6 +145,43 @@ def write_scores(food):
 
     food_csv(results)
 
+# Return business ids that are in both of the provided dicts
+def combo_plate(dish1, dish2):
+    dish1_biz = set()
+    dish2_biz = set()
+    
+    for d in dish1:
+        dish1_biz.add(d[0])
+        
+    for d in dish2:
+        dish2_biz.add(d[0])
+    
+#    print(list(dish1_biz & dish2_biz))
+    
+    return list(dish1_biz & dish2_biz)
+    
+    
+def feature_score(feature_item):
+    place_sentiment = dict()
+    options = dict()
+    for f in feature_item:
+        options[f[0]] = []
+        
+    for f in feature_item:
+        options[f[0]].append(f[1])
+        
+    for o in options:
+        place_sentiment[o] = 0.0
+        pos_count = 0
+        for sent in options[o]:
+            scores = sentiment_analyzer_scores(sent)
+            if scores['pos'] > scores['neg']+0.05:
+                pos_count += 1
+        place_sentiment[o] = pos_count/len(options[o])
+    
+    return place_sentiment
+    
+
 def main():
     places, reviews = process_dataset()
     dishes = dish_list()
@@ -147,31 +189,47 @@ def main():
     # Compute the overall sentiment for each dish across all restaurants
     food = parse_food_reviews(reviews,dishes)
     
-    write_scores(food)
+#    write_scores(food)
     
     # Restaurant CSV Creation
-    top_places = dict()
-    places_set = set()
-    results = []
-    for f in food:
-        top_places[f] = dict()
-        print('===============================================================')
-        print(f"===== {f} =====")
-        for b in food[f]:
-            places_set.add(b[0])
-            if places[b[0]]['name'] in top_places[f]:
-                top_places[f][places[b[0]]['name']] += 1
-            else:
-                top_places[f][places[b[0]]['name']] = 1
-            
-        for s in places_set:
-            print(f"{places[s]['name']} || {places[s]['stars']} || {places[s]['attributes']['Price Range']}")
-            p = {'Restaurant': places[s]['name'], 'Dish': f,'Stars': places[s]['stars'], 'Price Range': places[s]['attributes']['Price Range']}
-            results.append(p)
-        
-        places_csv(results)
-        
-        print('===============================================================')
+    # Curated combo of Hummus and Falafel
+    print("=== Hummus & Falafel ===")
+    combo_places = combo_plate(food['hummus'], food['falafel'])
+    combo_result = []
+    for c in combo_places:
+        if 4.5 <= float(places[c]['stars']):
+            combo_result.append({'Restaurant': places[c]['name'], 'Stars': places[c]['stars'] , 'Price Range': cost_descriptor(places[c]['attributes']['Price Range'])})
+    
+    places_csv('combo', combo_result)
+    
+    # Top feature for Kabobs
+    print("=== Best Kabobs ===")
+    candidate_places = feature_score(food['kabob'])
+    
+    feature_result = [] 
+    for c in candidate_places:
+        if 0.666 <= candidate_places[c]:
+            feature_result.append({'Restaurant': places[c]['name'], "Sentiment(%)":(100 * candidate_places[c]) , 'Stars': places[c]['stars'] , 'Price Range': cost_descriptor(places[c]['attributes']['Price Range'])})
+    
+    with open('topkabob.csv', 'w', newline='') as csvfile:
+        fieldnames = ['Restaurant', 'Sentiment(%)', 'Stars' , 'Price Range']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for res in feature_result:
+            writer.writerow(res)
+    
+    # Shawarma Night: Restaurants that are good for dinner    
+    print("=== Shawarma night ===")
+    good_spots = []
+    good_for_attribute = set()
+    for s in food['shawarma']:
+        good_for_attribute.add(s[0])
+    
+    for g in good_for_attribute:
+        if True == bool(places[g]['attributes']['Good For']['dinner']) and 4.0 <= float(places[g]['stars']):
+            good_spots.append({'Restaurant': places[g]['name'] , 'Stars': places[g]['stars'] , 'Price Range': cost_descriptor(places[g]['attributes']['Price Range'])})
+    
+    places_csv('shawarma_night', good_spots)
 
 
 if __name__ == "__main__":
