@@ -127,29 +127,28 @@ text.source {
     </div>
   </div>
   
-  <h3>Middle Eastern Restaurants</a></h3>
+  <h3>Popular Tags for Middle Eastern Restaurants</a></h3>
 	  <div id="option1">
-    <input name="falafelhummus" 
-           type="button" 
-           value="Falafel & Hummus" 
-            />
+    <input	name="falafelhummus" 
+			type="button" 
+			value="Hummus & Falafel"
+			onclick="FHData()" />
 </div>
 
-<div id="option1">
-    <input name="kabobs"
-           type="button" 
-           value="King of Kabobs" 
-            />
+<div id="option2">
+    <input	name="kabobs"
+			type="button" 
+			value="Best Kabobs" 
+            onclick="KabobData()" />
 </div>
 
-<div id="option1">
-    <input name="shawarma" 
-           type="button" 
-           value="Shawarma Night" 
-            />
+<div id="option3">
+    <input 	name="shawarma" 
+			type="button" 
+			value="Shawarma Night" 
+            onclick="ShawarmaData()" />
 			
   <p id="places">
-	SAMPLE
   </p>
   
 </div>
@@ -331,45 +330,64 @@ text.source {
     
 	//
 	//=========================================================================
-	// Yelp Restaurants Chart
-	// Layout 2
+	// Yelp Restaurants Curated List
+	// Layout
 	// Modified to accomodate more data
 	//=========================================================================
 	//
-	
-	
-	
-	    // List of groups (here I have one group per column)
-		// https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/dishes.csv
-//    var dishGroup = ["Spinach Pie", "Kabob", "Shawarma", "Grape leaves", "Hummus", "Falafel"]
-	
-    // add the options to the button
- //   d3.select("#selectButton")
- //     .selectAll('myOptions')
- //    	.data(dishGroup)
- //     .enter()
- //   	.append('option')
- //     .text(function (d) { return d; }) // text showed in the menu
- //     .attr("value", function (d) { return d; }) // corresponding value returned by the button
 	  
-	
-	  
-	var array = []
-	d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/restaurants.csv").then(function(data){
+	function FHData(){
+		var array = []
+		d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/combo.csv").then(function(data){
 
-      for (i = 0; i < data.length; i++){
-        text = data[i]
-        array.push(text)
-      }
-      var item = ''
+		for (i = 0; i < data.length; i++){
+		text = data[i]
+		array.push(text)
+		}
+		var item = ''
 
-      for (i = 0; i < array.length; i++){
-        item += array[i]['Dish']  + ") " + array[i]['Restaurant'] + " | Stars: " + array[i]['Stars'] + " | Price Range: " + array[i]['Price Range'] +'<br>'
-      }
-      document.getElementById('places').innerHTML = item
-	  })
+		for (i = 0; i < array.length; i++){
+			item +=  "Recommendation #" + (i+1) + ") " + array[i]['Restaurant'] + " has " + array[i]['Stars'] + "  stars and is a " + array[i]['Price Range'] + " option" + '<br>'
+		}
+		document.getElementById('places').innerHTML = item
+		})
+	}
     
+	function KabobData(){
+		var array = []
+		d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/topkabob.csv").then(function(data){
 
+		for (i = 0; i < data.length; i++){
+			text = data[i]
+			array.push(text)
+		}
+		var item = ''
+
+		for (i = 0; i < array.length; i++){
+        item +=  "Candidate #" + (i+1) + ") " + "The kabobs at "+ array[i]['Restaurant'] + " have a positive sentiment rate of " + array[i]['Sentiment(%)'] + "%." +
+		"It has " + array[i]['Stars'] + "  stars and is a " + array[i]['Price Range'] + " option" + '<br>'
+		}
+		document.getElementById('places').innerHTML = item
+		})
+	}
+	
+	function ShawarmaData(){
+		var array = []
+		d3.csv("https://raw.githubusercontent.com/Z-Jarrah/uiuc-dm-capstone/master/shawarma_night.csv").then(function(data){
+
+		for (i = 0; i < data.length; i++){
+			text = data[i]
+			array.push(text)
+		}
+		var item = ''
+
+		for (i = 0; i < array.length; i++){
+        item +=  "Dinner option #" + (i+1) + ") " + array[i]['Restaurant'] + " has " + array[i]['Stars'] + "  stars and is a " + array[i]['Price Range'] + " option" + '<br>'
+		}
+		document.getElementById('places').innerHTML = item
+		})
+	}
+	
   </script>
       </section>
     </div>
